@@ -1,0 +1,19 @@
+<html><head></head><body><h1>Not found</h1><h1>
+</h1><script id="static-nav-helper">
+(function () {
+  // Force normal full-page navigation for local/internal links.
+  // HostGator builder viewer.js used to intercept these.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 ||
+        href.indexOf('tel:') === 0 || href.indexOf('javascript:') === 0) {
+      return;
+    }
+    if (/\.html?($|\?|#)/i.test(href) || !/^[a-z][a-z0-9+.-]*:/i.test(href)) {
+      e.stopImmediatePropagation();
+    }
+  }, true);
+})();
+</script></body></html>

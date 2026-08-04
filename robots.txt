@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+SITEMAP: http://site5395068.mobilecarglassbakersfield.com/sitemap.xml
