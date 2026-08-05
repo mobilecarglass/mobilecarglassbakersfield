@@ -1,0 +1,143 @@
+/* Offline responsive + mobile side menu for Website Builder mirrors */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  max-width: 100%;
+}
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+html.smn-no-scroll,
+html.smn-no-scroll body {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+#static-scale-wrap {
+  position: relative;
+}
+
+/* --- Mobile side menu (hamburger) --- */
+#static-mobile-nav {
+  display: none;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+#static-mobile-nav .smn-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 2147483000;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: #0055c3;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0;
+}
+#static-mobile-nav .smn-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+#static-mobile-nav.is-open .smn-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+#static-mobile-nav.is-open .smn-toggle span:nth-child(2) {
+  opacity: 0;
+}
+#static-mobile-nav.is-open .smn-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+#static-mobile-nav .smn-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483001;
+  background: rgba(0,0,0,.45);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+#static-mobile-nav .smn-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483002;
+  width: min(86vw, 320px);
+  height: 100%;
+  background: #0f172a;
+  color: #fff;
+  box-shadow: -8px 0 24px rgba(0,0,0,.35);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+  display: flex;
+  flex-direction: column;
+}
+#static-mobile-nav.is-open .smn-drawer {
+  transform: translateX(0);
+}
+#static-mobile-nav .smn-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+#static-mobile-nav .smn-title {
+  font-size: 16px;
+  letter-spacing: .02em;
+}
+#static-mobile-nav .smn-close {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+#static-mobile-nav .smn-links {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#static-mobile-nav .smn-links a {
+  display: block;
+  padding: 14px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+#static-mobile-nav .smn-links a:hover,
+#static-mobile-nav .smn-links a:focus {
+  background: rgba(255,255,255,.08);
+}
+
+@media screen and (max-width: 1024px) {
+  #static-mobile-nav {
+    display: block;
+  }
+  /* Hide the original desktop menu bar on small screens */
+  nav.menu-element,
+  .menu-element.design-element {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
