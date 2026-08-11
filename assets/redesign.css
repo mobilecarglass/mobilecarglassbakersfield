@@ -205,3 +205,81 @@ p{margin:0 0 16px}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important}
 }
+
+/* Universal Netlify quote form integration */
+.contact-grid > *,
+.quote-form-row > * {
+  min-width: 0;
+}
+
+.quote-form-row {
+  align-items: start;
+}
+
+.quote-form-column {
+  min-width: 0;
+  width: 100%;
+}
+
+.quote-form-card {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.quote-form-heading {
+  margin-bottom: 20px;
+}
+
+.quote-form-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.quote-form-heading h2 {
+  margin-bottom: 10px;
+  font-size: clamp(25px, 3.2vw, 36px);
+}
+
+.quote-form-heading p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.quote-iframe-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.quote-iframe-wrap iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 1650px;
+  border: 0;
+}
+
+@media(max-width:900px){
+  .quote-form-card {
+    width: 100%;
+  }
+}
+
+@media(max-width:600px){
+  .quote-form-card {
+    padding: 20px 16px;
+  }
+
+  .quote-iframe-wrap iframe {
+    height: 1800px;
+  }
+}
